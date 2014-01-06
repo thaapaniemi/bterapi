@@ -1,4 +1,8 @@
-btc-e.api.python
+bterapi
 ================
 
-python class for api btc-e
+Python class for Bter api.
+
+Nothing done yet.
+
+forked from btc-e.api.python(python class for api btc-e)
