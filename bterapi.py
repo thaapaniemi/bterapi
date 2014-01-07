@@ -1,9 +1,15 @@
 # -*- coding: utf-8 -*-
-## Author:      t0pep0
-## e-mail:      t0pep0.gentoo@gmail.com
-## Jabber:      t0pep0@jabber.ru
-## BTC   :      1ipEA2fcVyjiUnBqUx7PVy5efktz2hucb
+
+## Author:    thaapaniemi
+## URL:       https://github.com/thaapaniemi/bterapi
+## License:   GPLv3
+## OriginalAuthor:	t0pep0
+## url:				https://github.com/t0pep0/btc-e.api.python
+## e-mail:			t0pep0.gentoo@gmail.com
+## Jabber:			t0pep0@jabber.ru
+## BTC   :			1ipEA2fcVyjiUnBqUx7PVy5efktz2hucb
 ## donate free =)
+
 import httplib
 import urllib
 import json
