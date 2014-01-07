@@ -31,65 +31,41 @@ class api:
 
  def __api_call(self,method,params):
   self.__nonce()
-  params['method'] = method
   params['nonce'] = str(self.__nonce_v)
   params = urllib.urlencode(params)
   headers = {"Content-type" : "application/x-www-form-urlencoded",
                       "Key" : self.__api_key,
 		     "Sign" : self.__signature(params)}
-  conn = httplib.HTTPSConnection("btc-e.com")
-  conn.request("POST", "/tapi", params, headers)
+  conn = httplib.HTTPSConnection("bter.com")
+  conn.request("POST", "https://bter.com/api/1/private/"+method, params, headers)
   response = conn.getresponse()
   data = json.load(response)
   conn.close()
   return data
   
  def get_param(self, couple, param):
-  conn = httplib.HTTPSConnection("btc-e.com")
-  conn.request("GET", "/api/2/"+couple+"/"+param)
+  conn = httplib.HTTPSConnection("bter.com")
+  conn.request("GET", "/api/1/" +param +"/"+couple)
   response = conn.getresponse()
   data = json.load(response)
   conn.close()
   return data
  
- def getInfo(self):
-  return self.__api_call('getInfo', {})
+ def getFunds(self):
+  return self.__api_call('getfunds', {})
 
- def TransHistory(self, tfrom, tcount, tfrom_id, tend_id, torder, tsince, tend):
-  params = {
-   "from"	: tfrom,
-   "count"	: tcount,
-   "from_id"	: tfrom_id,
-   "end_id"	: tend_id,
-   "order"	: torder,
-   "since"	: tsince,
-   "end"	: tend}
-  return self.__api_call('TransHistory', params)
- 
- def TradeHistory(self, tfrom, tcount, tfrom_id, tend_id, torder, tsince, tend, tpair):
-  params = {
-   "from"	: tfrom,
-   "count"	: tcount,
-   "from_id"	: tfrom_id,
-   "end_id"	: tend_id,
-   "order"	: torder,
-   "since"	: tsince,
-   "end"	: tend,
-   "pair"	: tpair}
-  return self.__api_call('TradeHistory', params)
-
- def ActiveOrders(self, tpair):
+ def Orderlist(self, tpair):
   params = { "pair" : tpair }
-  return self.__api_call('ActiveOrders', params)
+  return self.__api_call('orderlist', params)
 
- def Trade(self, tpair, ttype, trate, tamount):
+ def Placeorder(self, tpair, ttype, trate, tamount):
   params = {
    "pair"	: tpair,
    "type"	: ttype,
    "rate"	: trate,
    "amount"	: tamount}
-  return self.__api_call('Trade', params)
+  return self.__api_call('placeorder', params)
   
  def CancelOrder(self, torder_id):
   params = { "order_id" : torder_id }
-  return self.__api_call('CancelOrder', params)
+  return self.__api_call('cancelorder', params)
