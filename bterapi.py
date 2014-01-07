@@ -64,7 +64,7 @@ class api:
   params = { "pair" : tpair }
   return self.__api_call('orderlist', params)
 
- def Placeorder(self, tpair, ttype, trate, tamount):
+ def PlaceOrder(self, tpair, ttype, trate, tamount):
   params = {
    "pair"	: tpair,
    "type"	: ttype,
