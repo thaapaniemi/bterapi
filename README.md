@@ -13,8 +13,8 @@ Python class for Bter api.
 
 
 ##Credits
-thaapaniemi ( https://github.com/thaapaniemi/bterapi )
-t0pep0 ( https://github.com/t0pep0/btc-e.api.python )
+* thaapaniemi ( https://github.com/thaapaniemi/bterapi )
+* t0pep0 ( https://github.com/t0pep0/btc-e.api.python )
 
 ##License
 GNU GENERAL PUBLIC LICENSE v3
