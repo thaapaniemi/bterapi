@@ -17,7 +17,7 @@ import hashlib
 import hmac
 import time
 
-class api:
+class bterapi:
  __api_key	= '';
  __api_secret	= '';
  __nonce_v	= 1;
@@ -57,7 +57,7 @@ class api:
   conn.close()
   return data
  
- def getFunds(self):
+ def GetFunds(self):
   return self.__api_call('getfunds', {})
 
  def Orderlist(self, tpair):
